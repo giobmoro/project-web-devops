@@ -30,10 +30,18 @@ jobs:
     needs: build
 
     steps:
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.3.0
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
+          ref: master
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'giobmoro/project-web-devops-as2:1.0'
           target: 'https://github.com/giobmoro/project-web-devops/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
 
   deploy:
     runs-on: ubuntu-latest
