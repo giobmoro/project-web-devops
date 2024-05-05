@@ -9,7 +9,7 @@ install:
   
 script:
   - docker pull giobmoro/project-web-devops-as2:1.1
-  - docker run -v $PWD/:/app/report/giobmoro/project-web-devops-as2:1.1
+  - docker run -v $PWD:/app/report giobmoro/project-web-devops-as2:1.1 ls -l /app/report
 
-after script:
+after_script:
   - bash ./telegram_notification.sh
