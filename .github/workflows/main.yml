@@ -30,10 +30,10 @@ jobs:
     needs: build
 
     steps:
-      - name: Security Test with Snyk
-        run: npx snyk test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.3.0
+        with:
+          target: 'https://github.com/giobmoro/project-web-devops/'
 
   deploy:
     runs-on: ubuntu-latest
