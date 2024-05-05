@@ -34,7 +34,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.12.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'giobmoro/project-web-devops-as2:1.0'
+          docker_name: 'giobmoro/project-web-devops-as2:1.1'
           target: 'https://github.com/giobmoro/project-web-devops/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
