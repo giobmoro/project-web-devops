@@ -21,9 +21,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
-      - name: Build
-        run: |
-          echo "Building the application..."
+      - name: Build Docker image
+        run: docker build -t giobmoro/project-web-devops-as2:1.1 .
+        
+      - name: Push Docker image to Docker Hub
+        run: docker push giobmoro/project-web-devops-as2:1.1
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           
   security-test:
     runs-on: ubuntu-latest
