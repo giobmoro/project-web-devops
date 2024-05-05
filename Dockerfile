@@ -6,10 +6,6 @@ COPY . .
 
 RUN npm install
 
-RUN npm install -g eslint
-
-RUN eslint .
-
 EXPOSE 3000
 
 CMD ["node", "app.js"]
