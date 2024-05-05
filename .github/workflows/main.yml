@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Send Telegram Notification
-        run: bash telegram.sh
+        run: bash telegram_notification.sh
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
