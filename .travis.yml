@@ -1,7 +1,15 @@
 language: node_js
 node_js:
   - "18"
+
+cache: npm
+
 install:
   - npm install
+  
 script:
-  - npm test
+  - docker pull giobmoro/project-web-devops-as2:1.1
+  - docker run -v $PWD/:/app/report/giobmoro/project-web-devops-as2:1.1
+
+after script:
+  - bash ./telegram_notification.sh
