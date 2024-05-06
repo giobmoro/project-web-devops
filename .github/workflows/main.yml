@@ -50,6 +50,10 @@ jobs:
     needs: security-test
 
     steps:
+
+      - name: Install Dependencies
+        run: npm install
+        
       - name: Start server
         run: node ./server.js
       
