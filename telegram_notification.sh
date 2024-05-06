@@ -19,4 +19,7 @@ ${GITHUB_EVENT_NAME} event triggered this build.
 "
 
 # Envie a mensagem usando o GitHub API:
-curl -s -X POST ${BOT_URL} -d chat_id=${TELEGRAM_CHAT_ID} -d text="${MESSAGE}" -d parse_mode=${PARSE_MODE}
+send_msg () {
+    curl -s -X POST ${BOT_URL} -d chat_id=$TELEGRAM_CHAT_ID \
+        -d text="$1" -d parse_mode=${PARSE_MODE}
+
