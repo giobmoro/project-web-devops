@@ -50,6 +50,11 @@ jobs:
     needs: security-test
 
     steps:
-      - name: Deploy
-        run: |
-          echo "Deploying the application..."
+      - name: Start server
+        run: node server.js
+      
+      - name: Start ngrok
+        run: ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
+      
+      - name: Start ngrok tunnel
+        run: ./ngrok http --domain=trusting-griffon-flexible.ngrok-free.app 3000
