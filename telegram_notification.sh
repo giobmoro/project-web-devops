@@ -8,7 +8,7 @@ PARSE_MODE="Markdown"
 
 # Envie a mensagem usando o GitHub API:
 send_msg () {
-    curl -s -X POST ${BOT_URL} -d chat_id=$TELEGRAM_CHAT_ID \
+    curl -s -X POST ${BOT_URL} -d chat_id=${TELEGRAM_CHAT_ID} \
         -d text="$1" -d parse_mode=${PARSE_MODE}
 }
 
