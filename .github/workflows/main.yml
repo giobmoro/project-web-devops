@@ -27,7 +27,6 @@ jobs:
       - name: Log into Docker Hub
         run: echo "${{ secrets.DOCKER_ACCESS_TOKEN }}" | docker login --username giobmoro --password-stdin
 
-        
       - name: Push Docker image to Docker Hub
         run: docker push giobmoro/project-web-devops-as2:1.1
           
@@ -50,7 +49,14 @@ jobs:
     needs: security-test
 
     steps:
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          
       - name: Install Dependencies
         run: npm install
         
