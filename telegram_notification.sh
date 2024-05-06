@@ -15,12 +15,9 @@ send_msg () {
 # Defina a mensagem a ser enviada:
 msg="
 -------------------------------------
-GitHub Actions build *$GITHUB_RUN_NUMBER* $GITHUB_RUN_CONCLUSION!
-\`Repository:  $GITHUB_REPOSITORY\`
-\`Branch:      $GITHUB_REF\`
-*Commit Msg:*
-$GITHUB_SHA
-$GITHUB_EVENT_NAME event triggered this build.
+Send message to telegram!
+Atividade Somativa 2 - Devops
+Giovana Beatriz Moro de Oliveira
 --------------------------------------
 "
 
