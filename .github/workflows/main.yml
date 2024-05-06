@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Start server
-        run: node https://github.com/giobmoro/project-web-devops/blob/main/server.js
+        run: node ./server.js
       
       - name: Start ngrok
         run: ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
