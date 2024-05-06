@@ -6,6 +6,8 @@ app.listen(3000, () => {
   console.log('Server running on port 3000')
 })
 
+app.use(Express.static(path.join(__dirname, '/public')))
+
 app.get('/', (req, res) => {
-  res.send(app.use(Express.static(path.join(__dirname, '/public'))))
+  res.send('Atividade Somativa 2 - Giovana Beatriz Moro de Oliveira')
 })
