@@ -49,22 +49,16 @@ jobs:
     needs: security-test
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-          
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Start server
-        run: node ./server.js
-      
-      - name: Start ngrok
-        run: ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
-      
-      - name: Start ngrok tunnel
-        run: ./ngrok http --domain=trusting-griffon-flexible.ngrok-free.app 3000
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Run container
+      run: docker-compose up -d 
+    
+    - uses: luisboto/ngrok-tunnel-action@v0.1.7.2
+      with:
+        timeout: 1h
+        port: 8080
+        ngrok_authtoken: ${{ secrets.NGROK_TOKEN }}
+        tunnel_type: http
+        save_url_to_filename: tunnelURL.md
