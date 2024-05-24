@@ -1,4 +1,4 @@
-FROM node:18.10.0
+FROM node:18.20.2
 
 WORKDIR /web
 
